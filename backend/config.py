@@ -8,7 +8,7 @@ app = Flask(__name__)
 # Send cross orgin requests and wrap app in CORS
 CORS(app)
 
-app.config["SWLALCHEMY_DATABASE_URI"] = "sqlite:///mydatabase.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///mydatabase.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
