@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import { useState, useEffect } from "react";
+import ContactList from "./ContactList";
+import "./App.css";
+import ContactForm from "./ContactForm";
 
 function App() {
   const [contacts, setContacts] = useState([])
@@ -7,7 +9,7 @@ function App() {
   // As soon as component loads load this function
   useEffect(() => {
     fetchContacts()
-  }, [])
+  }, []);
 
   const fetchContacts = async () => {
     // Sending get request at contacts endpoint
@@ -15,14 +17,15 @@ function App() {
     const data = await response.json()
     setContacts(data.contacts)
     console.log(data.contacts)
-  }
+  };
 
 
   return (
-    <>
-      
-    </>
-  )
-}
+  <>
+  <ContactList contacts={contacts} /> 
+  <ContactForm />
+  </>
+  );
+};
 
 export default App
